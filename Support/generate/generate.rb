@@ -1,4 +1,4 @@
-#!/usr/local/opt/ruby187/bin/ruby -wKU
+#!/usr/local/opt/ruby7/bin/ruby -wKU
 
 # Generate grammar selectors from the PHP docs JSON file produced by generate.php
 #
