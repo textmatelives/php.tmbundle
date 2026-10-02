@@ -1,4 +1,4 @@
-#!/usr/local/opt/ruby7/bin/ruby -wKU
+#!/usr/bin/env ruby -w
 
 # Generate grammar selectors from the PHP docs JSON file produced by generate.php
 #
@@ -9,8 +9,11 @@
 
 require 'rubygems'
 require 'json'
-require '~/Library/Application Support/TextMate/Bundles/php.tmbundle/Support/lib/Builder'
-require '~/Library/Application Support/TextMate/Bundles/bundle-support.tmbundle/Support/shared/lib/osx/plist'
+require File.expand_path("../../lib/Builder", __FILE__)
+
+# Inside TextMate TM_SUPPORT_PATH points at Bundle Support; from a terminal use the managed copy.
+support_path = ENV["TM_SUPPORT_PATH"] || File.expand_path("~/Library/Application Support/TextMate/Managed/Bundles/Bundle Support.tmbundle/Support/shared")
+require "#{support_path}/lib/osx/plist"
 
 data = JSON.parse(File.read(ARGV[0]))
 
